@@ -7,6 +7,22 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
   },
   {
+    path: "/brands",
+    element: <div>Brands</div>,
+  },
+  {
+    path: "/profile",
+    element: <div>Profile</div>,
+  },
+  {
+    path: "/login",
+    element: <div>Login</div>,
+  },
+  {
+    path: "/register",
+    element: <div>Register</div>,
+  },
+  {
     path: "/about",
     element: <div>About us</div>,
   },

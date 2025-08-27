@@ -1,9 +1,13 @@
-import React from 'react'
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const HomeLayout = () => {
   return (
-    <div>HomeLayout</div>
-  )
-}
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
+};
 
-export default HomeLayout
+export default HomeLayout;
