@@ -6,7 +6,6 @@ const Footer = () => {
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/brands"}>Brands</NavLink>
       <NavLink to={"/profile"}>Profile</NavLink>
-      <NavLink to={"/about"}>About</NavLink>
     </>
   );
 
@@ -15,9 +14,7 @@ const Footer = () => {
       <footer className="bg-base-200 text-base-content rounded p-10 flex flex-col items-center gap-8">
         {/* Row 1: Navigation */}
         <nav className="mb-2">
-          <ul className="flex flex-wrap justify-center gap-6 text-lg font-medium">
-            {navItems}
-          </ul>
+          <ul className="flex flex-wrap justify-center gap-6">{navItems}</ul>
         </nav>
         {/* Row 2: Social Icons */}
         <nav className="mb-2">

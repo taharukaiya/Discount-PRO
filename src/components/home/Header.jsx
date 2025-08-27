@@ -12,14 +12,11 @@ const Header = () => {
       <li>
         <NavLink to={"/profile"}>Profile</NavLink>
       </li>
-      <li>
-        <NavLink to={"/about"}>About</NavLink>
-      </li>
     </>
   );
 
   return (
-    <div className="border-b-1 py-2">
+    <div className=" py-2">
       <div className="navbar w-11/12 sm:w-10/12 mx-auto">
         {/* Left Part */}
         <div className="navbar-start">

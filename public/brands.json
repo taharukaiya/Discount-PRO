@@ -1,26 +1,26 @@
 [
   {
     "_id": "brand_001",
-    "brand_name": "TechZone BD",
+    "brand_name": "Daraz",
     "rating": 4.8,
-    "description": "Leading electronics and gadgets retailer in Bangladesh offering smartphones, laptops, accessories and more at competitive prices.",
-    "brand_logo": "https://i.ibb.co/QXvfMJy/techzone-logo.png",
-    "shop_link": "https://techzone.com.bd",
-    "category": "Electronics",
+    "description": "Bangladesh's leading online marketplace offering electronics, fashion, home appliances, beauty products and more with nationwide delivery.",
+    "brand_logo": "https://i.ibb.co/QXvfMJy/daraz-logo.png",
+    "shop_link": "https://daraz.com.bd",
+    "category": "Marketplace",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "TECH50OFF",
-        "description": "Get 50% off on all smartphones",
+        "coupon_code": "DARAZ50",
+        "description": "Get 50% off on electronics",
         "expiry_date": "2025-12-31",
         "condition": "Minimum purchase of ৳20,000",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "LAPTOP30",
-        "description": "30% discount on gaming laptops",
+        "coupon_code": "MOBILE30",
+        "description": "30% discount on smartphones",
         "expiry_date": "2025-10-15",
-        "condition": "Valid for selected gaming laptops only",
+        "condition": "Valid for selected mobile phones only",
         "coupon_type": "Percentage"
       },
       {
@@ -34,45 +34,45 @@
   },
   {
     "_id": "brand_002",
-    "brand_name": "Fashion Hub",
+    "brand_name": "Pickaboo",
     "rating": 4.5,
-    "description": "Premium fashion destination for men and women featuring latest trends in clothing, shoes, and accessories.",
-    "brand_logo": "https://i.ibb.co/7XzqKpL/fashion-hub-logo.png",
-    "shop_link": "https://fashionhub.com.bd",
-    "category": "Fashion",
+    "description": "Leading electronics and gadgets retailer in Bangladesh specializing in smartphones, laptops, cameras and tech accessories.",
+    "brand_logo": "https://i.ibb.co/7XzqKpL/pickaboo-logo.png",
+    "shop_link": "https://pickaboo.com",
+    "category": "Electronics",
     "isSaleOn": false,
     "coupons": [
       {
-        "coupon_code": "STYLE25",
-        "description": "25% off on all winter collection",
+        "coupon_code": "TECH25",
+        "description": "25% off on all gadgets",
         "expiry_date": "2025-08-30",
-        "condition": "Valid on winter wear only",
+        "condition": "Valid on electronics only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "SHOES40",
-        "description": "40% discount on branded shoes",
+        "coupon_code": "LAPTOP40",
+        "description": "40% discount on gaming laptops",
         "expiry_date": "2025-11-20",
-        "condition": "Minimum 2 pairs purchase required",
+        "condition": "Selected gaming laptops only",
         "coupon_type": "Percentage"
       }
     ]
   },
   {
     "_id": "brand_003",
-    "brand_name": "BookWorm BD",
+    "brand_name": "Rokomari",
     "rating": 4.7,
-    "description": "Largest online bookstore in Bangladesh with academic, fiction, non-fiction books and educational materials.",
-    "brand_logo": "https://i.ibb.co/YcqHVnX/bookworm-logo.png",
-    "shop_link": "https://bookwormbd.com",
+    "description": "Bangladesh's largest online bookstore offering academic books, novels, children's books and stationery with home delivery.",
+    "brand_logo": "https://i.ibb.co/YcqHVnX/rokomari-logo.png",
+    "shop_link": "https://rokomari.com",
     "category": "Books & Education",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "READ20",
-        "description": "20% off on all fiction books",
+        "coupon_code": "BOOK20",
+        "description": "20% off on all books",
         "expiry_date": "2025-12-25",
-        "condition": "Valid on fiction category only",
+        "condition": "Valid on all book categories",
         "coupon_type": "Percentage"
       },
       {
@@ -93,30 +93,30 @@
   },
   {
     "_id": "brand_004",
-    "brand_name": "GreenLife Organic",
+    "brand_name": "Chaldal",
     "rating": 4.6,
-    "description": "Certified organic food and health products store promoting healthy lifestyle with natural ingredients.",
-    "brand_logo": "https://i.ibb.co/mRzGQpY/greenlife-logo.png",
-    "shop_link": "https://greenlifeorganic.bd",
-    "category": "Health & Wellness",
+    "description": "Online grocery delivery service providing fresh vegetables, daily essentials, household items with same-day delivery in Dhaka.",
+    "brand_logo": "https://i.ibb.co/mRzGQpY/chaldal-logo.png",
+    "shop_link": "https://chaldal.com",
+    "category": "Grocery",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "ORGANIC30",
-        "description": "30% off on organic vegetables",
+        "coupon_code": "FRESH30",
+        "description": "30% off on fresh vegetables",
         "expiry_date": "2025-09-15",
-        "condition": "Fresh vegetables only",
+        "condition": "Fresh produce only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "HEALTH100",
-        "description": "৳100 off on health supplements",
+        "coupon_code": "GROCERY100",
+        "description": "৳100 off on grocery shopping",
         "expiry_date": "2025-11-30",
         "condition": "Minimum purchase of ৳1,500",
         "coupon_type": "Fixed Amount"
       },
       {
-        "coupon_code": "NEWBIE20",
+        "coupon_code": "NEWUSER20",
         "description": "20% discount for new customers",
         "expiry_date": "2025-12-31",
         "condition": "First-time buyers only",
@@ -126,116 +126,116 @@
   },
   {
     "_id": "brand_005",
-    "brand_name": "HomeDecor Plus",
+    "brand_name": "Shajgoj",
     "rating": 4.3,
-    "description": "Complete home decoration solution with furniture, lighting, textiles and decorative items for modern homes.",
-    "brand_logo": "https://i.ibb.co/9wVxQmR/homedecor-logo.png",
-    "shop_link": "https://homedecorplus.com.bd",
-    "category": "Home & Garden",
-    "isSaleOn": false,
-    "coupons": [
-      {
-        "coupon_code": "HOME35",
-        "description": "35% off on furniture collection",
-        "expiry_date": "2025-10-10",
-        "condition": "Valid on selected furniture items",
-        "coupon_type": "Percentage"
-      },
-      {
-        "coupon_code": "LIGHT25",
-        "description": "25% discount on lighting solutions",
-        "expiry_date": "2025-09-20",
-        "condition": "All lighting products included",
-        "coupon_type": "Percentage"
-      }
-    ]
-  },
-  {
-    "_id": "brand_006",
-    "brand_name": "SportsPro BD",
-    "rating": 4.9,
-    "description": "Premium sports equipment and activewear store for athletes and fitness enthusiasts with international brands.",
-    "brand_logo": "https://i.ibb.co/KsRzQwP/sportspro-logo.png",
-    "shop_link": "https://sportsprobd.com",
-    "category": "Sports & Fitness",
-    "isSaleOn": true,
-    "coupons": [
-      {
-        "coupon_code": "FIT40",
-        "description": "40% off on gym equipment",
-        "expiry_date": "2025-11-15",
-        "condition": "Home gym equipment only",
-        "coupon_type": "Percentage"
-      },
-      {
-        "coupon_code": "ATHLETE20",
-        "description": "20% discount on athletic wear",
-        "expiry_date": "2025-12-20",
-        "condition": "Branded sportswear only",
-        "coupon_type": "Percentage"
-      },
-      {
-        "coupon_code": "TEAM1000",
-        "description": "৳1000 off on team orders",
-        "expiry_date": "2025-10-31",
-        "condition": "Minimum 10 items purchase",
-        "coupon_type": "Fixed Amount"
-      }
-    ]
-  },
-  {
-    "_id": "brand_007",
-    "brand_name": "BeautyBox",
-    "rating": 4.4,
-    "description": "One-stop beauty destination featuring cosmetics, skincare, haircare products from local and international brands.",
-    "brand_logo": "https://i.ibb.co/2sTxGpY/beautybox-logo.png",
-    "shop_link": "https://beautybox.com.bd",
+    "description": "Leading beauty and cosmetics online store in Bangladesh featuring makeup, skincare, hair care and personal care products.",
+    "brand_logo": "https://i.ibb.co/9wVxQmR/shajgoj-logo.png",
+    "shop_link": "https://shajgoj.com",
     "category": "Beauty & Personal Care",
     "isSaleOn": false,
     "coupons": [
       {
-        "coupon_code": "GLOW30",
-        "description": "30% off on skincare products",
-        "expiry_date": "2025-09-25",
-        "condition": "Premium skincare brands only",
+        "coupon_code": "BEAUTY35",
+        "description": "35% off on skincare products",
+        "expiry_date": "2025-10-10",
+        "condition": "Valid on skincare items",
         "coupon_type": "Percentage"
       },
       {
         "coupon_code": "MAKEUP25",
         "description": "25% discount on makeup collection",
-        "expiry_date": "2025-11-10",
+        "expiry_date": "2025-09-20",
         "condition": "All makeup products included",
         "coupon_type": "Percentage"
       }
     ]
   },
   {
-    "_id": "brand_008",
-    "brand_name": "ToyLand Express",
-    "rating": 4.6,
-    "description": "Largest toy store in Bangladesh offering educational toys, games, and entertainment for children of all ages.",
-    "brand_logo": "https://i.ibb.co/1bQWXpL/toyland-logo.png",
-    "shop_link": "https://toylandexpress.bd",
-    "category": "Toys & Games",
+    "_id": "brand_006",
+    "brand_name": "Khaas Food",
+    "rating": 4.9,
+    "description": "Premium organic and natural food products marketplace offering healthy snacks, spices, honey and traditional Bangladeshi foods.",
+    "brand_logo": "https://i.ibb.co/KsRzQwP/khaas-logo.png",
+    "shop_link": "https://khaasfood.com",
+    "category": "Food & Beverage",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "KIDS50",
-        "description": "50% off on educational toys",
+        "coupon_code": "ORGANIC40",
+        "description": "40% off on organic products",
+        "expiry_date": "2025-11-15",
+        "condition": "Organic items only",
+        "coupon_type": "Percentage"
+      },
+      {
+        "coupon_code": "SPICE20",
+        "description": "20% discount on spices",
+        "expiry_date": "2025-12-20",
+        "condition": "All spice products",
+        "coupon_type": "Percentage"
+      },
+      {
+        "coupon_code": "COMBO1000",
+        "description": "৳1000 off on combo packs",
+        "expiry_date": "2025-10-31",
+        "condition": "Minimum 3 combo purchase",
+        "coupon_type": "Fixed Amount"
+      }
+    ]
+  },
+  {
+    "_id": "brand_007",
+    "brand_name": "Bagdoom",
+    "rating": 4.4,
+    "description": "Fashion e-commerce platform featuring trendy clothing, shoes, bags and accessories for men and women with affordable prices.",
+    "brand_logo": "https://i.ibb.co/2sTxGpY/bagdoom-logo.png",
+    "shop_link": "https://bagdoom.com",
+    "category": "Fashion",
+    "isSaleOn": false,
+    "coupons": [
+      {
+        "coupon_code": "FASHION30",
+        "description": "30% off on clothing collection",
+        "expiry_date": "2025-09-25",
+        "condition": "All clothing items",
+        "coupon_type": "Percentage"
+      },
+      {
+        "coupon_code": "SHOES25",
+        "description": "25% discount on footwear",
+        "expiry_date": "2025-11-10",
+        "condition": "All shoes and sandals",
+        "coupon_type": "Percentage"
+      }
+    ]
+  },
+  {
+    "_id": "brand_008",
+    "brand_name": "Star Tech",
+    "rating": 4.6,
+    "description": "Leading computer and technology retailer offering laptops, desktops, components, accessories and IT solutions across Bangladesh.",
+    "brand_logo": "https://i.ibb.co/1bQWXpL/startech-logo.png",
+    "shop_link": "https://startech.com.bd",
+    "category": "Electronics",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "COMPUTER50",
+        "description": "50% off on computer accessories",
         "expiry_date": "2025-12-15",
-        "condition": "Learning toys for ages 3-12",
+        "condition": "PC accessories only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "GAMES30",
-        "description": "30% discount on board games",
+        "coupon_code": "GAMING30",
+        "description": "30% discount on gaming gear",
         "expiry_date": "2025-10-25",
-        "condition": "Family board games only",
+        "condition": "Gaming products only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "GIFT200",
-        "description": "৳200 off on gift sets",
+        "coupon_code": "LAPTOP200",
+        "description": "৳200 off on laptop purchase",
         "expiry_date": "2025-12-31",
         "condition": "Minimum purchase of ৳2,000",
         "coupon_type": "Fixed Amount"
@@ -244,57 +244,57 @@
   },
   {
     "_id": "brand_009",
-    "brand_name": "AutoParts Pro",
+    "brand_name": "Othoba.com",
     "rating": 4.2,
-    "description": "Comprehensive automotive parts and accessories store serving car enthusiasts and professional mechanics.",
-    "brand_logo": "https://i.ibb.co/FhXvVzJ/autoparts-logo.png",
-    "shop_link": "https://autopartspro.com.bd",
-    "category": "Automotive",
+    "description": "Popular online shopping destination offering fashion, electronics, home appliances, books and lifestyle products with easy payment options.",
+    "brand_logo": "https://i.ibb.co/FhXvVzJ/othoba-logo.png",
+    "shop_link": "https://othoba.com",
+    "category": "Marketplace",
     "isSaleOn": false,
     "coupons": [
       {
-        "coupon_code": "ENGINE20",
-        "description": "20% off on engine parts",
+        "coupon_code": "SHOP20",
+        "description": "20% off on all categories",
         "expiry_date": "2025-11-30",
-        "condition": "Original parts only",
+        "condition": "Sitewide discount",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "SERVICE15",
-        "description": "15% discount on service packages",
+        "coupon_code": "MOBILE15",
+        "description": "15% discount on mobile accessories",
         "expiry_date": "2025-10-20",
-        "condition": "Full service packages only",
+        "condition": "Mobile accessories only",
         "coupon_type": "Percentage"
       }
     ]
   },
   {
     "_id": "brand_010",
-    "brand_name": "PetCare Central",
+    "brand_name": "BD Shop",
     "rating": 4.8,
-    "description": "Complete pet care solution with premium pet food, accessories, toys and healthcare products for all pets.",
-    "brand_logo": "https://i.ibb.co/XZrG1YY/petcare-logo.png",
-    "shop_link": "https://petcarecentral.bd",
-    "category": "Pet Supplies",
+    "description": "Comprehensive online marketplace offering electronics, fashion, home decor, sports equipment and daily essentials with reliable delivery.",
+    "brand_logo": "https://i.ibb.co/XZrG1YY/bdshop-logo.png",
+    "shop_link": "https://bdshop.com",
+    "category": "Marketplace",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "PETFOOD25",
-        "description": "25% off on premium pet food",
+        "coupon_code": "BDSHOP25",
+        "description": "25% off on home appliances",
         "expiry_date": "2025-12-10",
-        "condition": "Premium brands only",
+        "condition": "Home appliances only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "TOYS40",
-        "description": "40% discount on pet toys",
+        "coupon_code": "SPORTS40",
+        "description": "40% discount on sports items",
         "expiry_date": "2025-09-30",
-        "condition": "All pet toys included",
+        "condition": "All sports equipment",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "HEALTH300",
-        "description": "৳300 off on pet healthcare",
+        "coupon_code": "MEGA300",
+        "description": "৳300 off on mega shopping",
         "expiry_date": "2025-11-25",
         "condition": "Minimum purchase of ৳3,000",
         "coupon_type": "Fixed Amount"
@@ -303,59 +303,59 @@
   },
   {
     "_id": "brand_011",
-    "brand_name": "FoodieHub",
+    "brand_name": "Foodpanda",
     "rating": 4.7,
-    "description": "Gourmet food marketplace featuring local delicacies, international cuisines, and specialty ingredients.",
-    "brand_logo": "https://i.ibb.co/GRzqMnY/foodiehub-logo.png",
-    "shop_link": "https://foodiehub.com.bd",
-    "category": "Food & Beverage",
+    "description": "Leading food delivery platform in Bangladesh connecting customers with restaurants, offering diverse cuisines and quick delivery service.",
+    "brand_logo": "https://i.ibb.co/GRzqMnY/foodpanda-logo.png",
+    "shop_link": "https://foodpanda.com.bd",
+    "category": "Food Delivery",
     "isSaleOn": true,
     "coupons": [
       {
-        "coupon_code": "TASTE20",
-        "description": "20% off on local delicacies",
+        "coupon_code": "FOOD20",
+        "description": "20% off on restaurant orders",
         "expiry_date": "2025-10-05",
-        "condition": "Traditional food items only",
+        "condition": "All restaurant orders",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "SPICE35",
-        "description": "35% discount on spices & ingredients",
+        "coupon_code": "DELIVERY35",
+        "description": "35% discount on delivery charges",
         "expiry_date": "2025-11-15",
-        "condition": "Cooking ingredients only",
+        "condition": "All delivery orders",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "COMBO500",
-        "description": "৳500 off on meal combos",
+        "coupon_code": "FEAST500",
+        "description": "৳500 off on large orders",
         "expiry_date": "2025-12-20",
-        "condition": "Minimum 3 meal combo purchase",
+        "condition": "Minimum order of ৳2,500",
         "coupon_type": "Fixed Amount"
       }
     ]
   },
   {
     "_id": "brand_012",
-    "brand_name": "CraftCorner BD",
+    "brand_name": "Ajkerdeal",
     "rating": 4.5,
-    "description": "Creative arts and crafts store providing supplies for DIY projects, painting, sculpting and handmade crafts.",
-    "brand_logo": "https://i.ibb.co/KmNpVzQ/craftcorner-logo.png",
-    "shop_link": "https://craftcornerbd.com",
-    "category": "Arts & Crafts",
+    "description": "Popular e-commerce platform offering wide range of products including electronics, fashion, home goods, baby products and more.",
+    "brand_logo": "https://i.ibb.co/KmNpVzQ/ajkerdeal-logo.png",
+    "shop_link": "https://ajkerdeal.com",
+    "category": "Marketplace",
     "isSaleOn": false,
     "coupons": [
       {
-        "coupon_code": "CRAFT30",
-        "description": "30% off on art supplies",
+        "coupon_code": "DEAL30",
+        "description": "30% off on daily deals",
         "expiry_date": "2025-09-18",
-        "condition": "Painting and drawing supplies",
+        "condition": "Featured deals only",
         "coupon_type": "Percentage"
       },
       {
-        "coupon_code": "DIY25",
-        "description": "25% discount on DIY kits",
+        "coupon_code": "BABY25",
+        "description": "25% discount on baby products",
         "expiry_date": "2025-10-30",
-        "condition": "Complete DIY project kits",
+        "condition": "Baby care items only",
         "coupon_type": "Percentage"
       }
     ]

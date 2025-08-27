@@ -23,10 +23,6 @@ const router = createBrowserRouter([
     element: <div>Register</div>,
   },
   {
-    path: "/about",
-    element: <div>About us</div>,
-  },
-  {
     path: "*",
     element: <div>Error</div>,
   },
