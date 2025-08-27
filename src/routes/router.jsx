@@ -5,10 +5,20 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    loader: () => fetch("/brands.json"),
   },
   {
     path: "/brands",
     element: <div>Brands</div>,
+  },
+  {
+    path: "/brands/:brandId",
+    element: <div>Brand Details</div>,
+    loader: async ({ params }) => {
+      const response = await fetch("/brands.json");
+      const brands = await response.json();
+      return brands.find((brand) => brand._id === params.brandId);
+    },
   },
   {
     path: "/profile",
