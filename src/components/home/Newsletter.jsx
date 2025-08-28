@@ -26,7 +26,7 @@ const Newsletter = () => {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container w-11/12 sm:w-10/12 mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Section Title */}
           <div className="text-center mb-8">
@@ -43,14 +43,14 @@ const Newsletter = () => {
           {!isSuccess ? (
             <>
               {/* Email Form */}
-              <form onSubmit={handleSubmit} className="mb-8">
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <form onSubmit={handleSubmit} className="mb-8 w-full">
+                <div className="flex flex-col sm:flex-row gap-4 w-full mx-auto">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
                     required
                   />
                   <button
@@ -62,13 +62,6 @@ const Newsletter = () => {
                   </button>
                 </div>
               </form>
-
-              {/* Benefits */}
-              <div className="text-center">
-                <p className="text-gray-500 text-sm">
-                  ✨ Exclusive deals • 🔒 No spam • 📧 Unsubscribe anytime
-                </p>
-              </div>
             </>
           ) : (
             /* Success State */

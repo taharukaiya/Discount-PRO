@@ -21,11 +21,11 @@ const TopBrands = () => {
           </div>
 
           {/* Brands Marquee */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             <Marquee
               speed={50}
               pauseOnHover={true}
-              className=""
+              className="py-2"
               gradient={true}
               gradientColor={[248, 250, 252]}
               gradientWidth={100}
@@ -36,11 +36,11 @@ const TopBrands = () => {
                   to={`/brands/${brand._id}`}
                   className="mx-6 group transition-all duration-300 hover:scale-110 block"
                 >
-                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-2 w-32 h-20 flex items-center justify-center group-hover:bg-gray-50 overflow-hidden">
+                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-4 w-32 h-20 flex items-center justify-center group-hover:bg-gray-50">
                     <img
                       src={brand.brand_logo}
                       alt={brand.brand_name}
-                      className="max-w-full max-h-full object-contain filter transition-all duration-300 group-hover:brightness-110"
+                      className="max-w-full max-h-full object-contain transition-all duration-300 group-hover:brightness-110"
                       onError={(e) => {
                         e.target.src = `https://ui-avatars.com/api/?name=${brand.brand_name}&background=6366f1&color=fff&size=128&font-size=0.4`;
                       }}
