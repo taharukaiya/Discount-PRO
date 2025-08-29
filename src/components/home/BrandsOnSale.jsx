@@ -2,6 +2,20 @@ import { useLoaderData, NavLink } from "react-router-dom";
 
 const BrandsOnSale = () => {
   const brands = useLoaderData();
+  console.log(brands);
+
+  // Handle loading state or missing data
+  if (!brands || !Array.isArray(brands)) {
+    return (
+      <section className="py-16 bg-gray-50">
+        <div className="w-11/12 sm:w-10/12 mx-auto">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-gray-600">Loading brands on sale...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   // Filter brands where isSaleOn is true
   const brandsOnSale = brands.filter((brand) => brand.isSaleOn);

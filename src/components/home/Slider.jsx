@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import couponBanner1 from "../../assets/Images/SliderImages/couponBanner-1.jpg";
 import couponBanner2 from "../../assets/Images/SliderImages/couponBanner-2.jpg";
 import couponBanner3 from "../../assets/Images/SliderImages/couponBanner-3.jpg";
+import { NavLink } from "react-router-dom";
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -72,7 +73,7 @@ const Slider = () => {
                   {slide.subtitle}
                 </p>
                 <button className="mt-6 bg-primary hover:bg-primary-focus text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
-                  Get Your Coupon Now
+                  <NavLink to={"/brands"}>Get Your Coupon Now</NavLink>
                 </button>
               </div>
             </div>

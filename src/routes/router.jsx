@@ -1,28 +1,44 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
+import Home from "../components/home/Home";
+import Brands from "../components/brands/Brands";
+import BrandDetails from "../components/brands/BrandDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
-    loader: () => fetch("/brands.json"),
-  },
-  {
-    path: "/brands",
-    element: <div>Brands</div>,
-  },
-  {
-    path: "/brands/:brandId",
-    element: <div>Brand Details</div>,
-    loader: async ({ params }) => {
-      const response = await fetch("/brands.json");
-      const brands = await response.json();
-      return brands.find((brand) => brand._id === params.brandId);
-    },
-  },
-  {
-    path: "/profile",
-    element: <div>Profile</div>,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: async () => {
+          const response = await fetch("/brands.json");
+          return response.json();
+        },
+      },
+      {
+        path: "brands",
+        element: <Brands />,
+        loader: async () => {
+          const response = await fetch("/brands.json");
+          return response.json();
+        },
+      },
+      {
+        path: "brands/:brandId",
+        element: <BrandDetails />,
+        loader: async ({ params }) => {
+          const response = await fetch("/brands.json");
+          const brands = await response.json();
+          return brands.find((brand) => brand._id === params.brandId);
+        },
+      },
+      {
+        path: "profile",
+        element: <div>Profile</div>,
+      },
+    ],
   },
   {
     path: "/login",

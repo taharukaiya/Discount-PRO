@@ -3,6 +3,20 @@ import { useLoaderData, NavLink } from "react-router-dom";
 
 const TopBrands = () => {
   const brands = useLoaderData();
+  console.log(brands);
+
+  // Handle loading state or missing data
+  if (!brands || !Array.isArray(brands)) {
+    return (
+      <section className="bg-gradient-to-r from-blue-100 to-purple-100">
+        <div className="py-12 w-11/12 sm:w-10/12 mx-auto">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-gray-600">Loading brands...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-gradient-to-r from-blue-100 to-purple-100">
