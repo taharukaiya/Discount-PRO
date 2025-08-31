@@ -17,17 +17,13 @@ const Header = () => {
   const confirmLogout = async () => {
     setShowLogoutModal(false);
     try {
-      // Show success message first
+      await logout();
       toast.success("Successfully logged out! See you again soon!", {
         position: "top-right",
         autoClose: 2000,
       });
-
-      // Wait a bit for toast to show, then logout
-      setTimeout(async () => {
-        await logout();
-      }, 500);
     } catch (error) {
+      console.error("Logout error:", error);
       toast.error("Failed to logout. Please try again.", {
         position: "top-right",
         autoClose: 2000,

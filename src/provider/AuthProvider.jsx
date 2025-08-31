@@ -12,25 +12,25 @@ export const AuthContext = createContext();
 
 const auth = getAuth(app);
 
-// Register
-const createNewUser = (email, password) => {
-  setIsLoading(true);
-  return createUserWithEmailAndPassword(auth, email, password);
-};
-
-const userLogin = (email, password) => {
-  setIsLoading(true);
-  return signInWithEmailAndPassword(auth, email, password);
-};
-
-const logout = () => {
-  setIsLoading(true);
-  return signOut(auth);
-};
-
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setIsLoading] = useState(true);
+
+  // Register
+  const createNewUser = (email, password) => {
+    setIsLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const userLogin = (email, password) => {
+    setIsLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logout = () => {
+    setIsLoading(true);
+    return signOut(auth);
+  };
 
   const authInfo = {
     user,

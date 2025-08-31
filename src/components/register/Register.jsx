@@ -106,7 +106,7 @@ const Register = () => {
       // Simulate successful registration
       toast.success("Registration successful! Welcome to Discount PRO!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
       // Navigate to home page after successful registration
@@ -116,7 +116,7 @@ const Register = () => {
     } catch (error) {
       toast.error("Registration failed. Please try again.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
     } finally {
       setIsLoading(false);
@@ -132,7 +132,7 @@ const Register = () => {
 
       toast.success("Successfully signed in with Google!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
       setTimeout(() => {
@@ -141,7 +141,7 @@ const Register = () => {
     } catch (error) {
       toast.error("Google sign-in failed. Please try again.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
     } finally {
       setIsLoading(false);

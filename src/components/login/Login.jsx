@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const { userLogin, setUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -15,7 +17,6 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const navigate = useNavigate();
 
   // Handle input changes
   const handleChange = (e) => {
@@ -62,17 +63,14 @@ const Login = () => {
       // Firebase user login
       const result = await userLogin(formData.email, formData.password);
       setUser(result.user);
+      navigate(location?.state ? location.state : "/");
 
       // Login successful
       toast.success("Login successful! Welcome back!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
-      // Navigate to home page after successful login
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
     } catch (error) {
       // Handle Firebase authentication errors
       let errorMessage = "Login failed. Please try again.";
@@ -87,7 +85,7 @@ const Login = () => {
 
       toast.error(errorMessage, {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
       setErrors({
