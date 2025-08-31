@@ -1,9 +1,45 @@
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  // Handle logout with confirmation and success message
+  const handleLogout = async () => {
+    setShowLogoutModal(true);
+  };
+
+  // Confirm logout
+  const confirmLogout = async () => {
+    setShowLogoutModal(false);
+    try {
+      // Show success message first
+      toast.success("Successfully logged out! See you again soon!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+
+      // Wait a bit for toast to show, then logout
+      setTimeout(async () => {
+        await logout();
+      }, 500);
+    } catch (error) {
+      toast.error("Failed to logout. Please try again.", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    }
+  };
+
+  // Cancel logout
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
+  };
+
   const navItems = (
     <>
       <li>
@@ -106,46 +142,136 @@ const Header = () => {
 
         {/* Right Part - Auth Buttons */}
         <div className="navbar-end space-x-3">
-          <NavLink
-            to={"/auth/login"}
-            className="btn btn-outline btn-primary hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 font-medium"
-          >
-            <svg
-              className="w-4 h-4 mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-              />
-            </svg>
-            Login
-          </NavLink>
-          <NavLink
-            to={"/auth/register"}
-            className="btn btn-primary bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-none transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
-          >
-            <svg
-              className="w-4 h-4 mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-              />
-            </svg>
-            Register
-          </NavLink>
+          {user ? (
+            // Show user info and logout button when logged in
+            <div className="flex items-center space-x-3">
+              {user.photoURL && (
+                <div className="avatar">
+                  <div className="w-8 h-8 rounded-full">
+                    <img src={user.photoURL} alt="User Avatar" />
+                  </div>
+                </div>
+              )}
+              <span className="text-gray-700 font-medium hidden sm:block">
+                {user.displayName || user.email}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline btn-error hover:bg-red-600 hover:border-red-600 transition-all duration-300 font-medium"
+              >
+                <svg
+                  className="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
+                Logout
+              </button>
+            </div>
+          ) : (
+            // Show login and register buttons when not logged in
+            <>
+              <Link
+                to={"/auth/login"}
+                className="btn btn-outline btn-primary hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 font-medium"
+              >
+                <svg
+                  className="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  />
+                </svg>
+                Login
+              </Link>
+              <Link
+                to={"/auth/register"}
+                className="btn btn-primary bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-none transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                  />
+                </svg>
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
+
+      {/* Toast Container for notifications */}
+      <ToastContainer />
+
+      {/* Modern Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <div className="fixed inset-0 bg-[#ffffff6b] flex items-center justify-center p-4 z-[9999] backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100">
+            {/* Modal Header */}
+            <div className="p-6 text-center border-b border-gray-100">
+              <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-8 h-8 text-red-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                Confirm Logout
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Are you sure you want to logout? You will need to sign in again
+                to access your account and continue saving with exclusive deals.
+              </p>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="p-6 flex gap-4">
+              <button
+                onClick={cancelLogout}
+                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmLogout}
+                className="flex-1 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Yes, Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

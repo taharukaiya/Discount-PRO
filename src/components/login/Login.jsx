@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const { userLogin, setUser } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -56,38 +59,39 @@ const Login = () => {
     }
 
     try {
-      // Simulate API call - replace with actual login logic
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Firebase user login
+      const result = await userLogin(formData.email, formData.password);
+      setUser(result.user);
 
-      // Simulate login validation
-      if (
-        formData.email === "test@example.com" &&
-        formData.password === "Test123"
-      ) {
-        toast.success("Login successful! Welcome back!", {
-          position: "top-right",
-          autoClose: 3000,
-        });
-
-        // Navigate to home page after successful login
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
-      } else {
-        // Show error for invalid credentials
-        toast.error("Invalid email or password. Please try again.", {
-          position: "top-right",
-          autoClose: 3000,
-        });
-        setErrors({
-          general:
-            "Invalid email or password. Please check your credentials and try again.",
-        });
-      }
-    } catch (error) {
-      toast.error("Login failed. Please try again.", {
+      // Login successful
+      toast.success("Login successful! Welcome back!", {
         position: "top-right",
         autoClose: 3000,
+      });
+
+      // Navigate to home page after successful login
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+    } catch (error) {
+      // Handle Firebase authentication errors
+      let errorMessage = "Login failed. Please try again.";
+
+      if (error.code === "auth/user-not-found") {
+        errorMessage = "No account found with this email address.";
+      } else if (error.code === "auth/wrong-password") {
+        errorMessage = "Invalid password. Please try again.";
+      } else if (error.code === "auth/invalid-email") {
+        errorMessage = "Invalid email address format.";
+      }
+
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 3000,
+      });
+
+      setErrors({
+        general: errorMessage,
       });
     } finally {
       setIsLoading(false);
@@ -233,7 +237,7 @@ const Login = () => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   <svg
-                    className="w-5 h-5 text-gray-400 hover:text-gray-600"
+                    className="w-5 h-5 text-gray-500 hover:text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

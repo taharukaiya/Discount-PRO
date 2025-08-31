@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  const { createNewUser, setUser } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -94,8 +97,11 @@ const Register = () => {
     }
 
     try {
-      // Simulate API call - replace with actual registration logic
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Firebase user registration
+      const result = await createNewUser(formData.email, formData.password);
+      const user = result.user;
+      console.log(user);
+      setUser(user);
 
       // Simulate successful registration
       toast.success("Registration successful! Welcome to Discount PRO!", {

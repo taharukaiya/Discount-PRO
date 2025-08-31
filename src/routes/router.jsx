@@ -6,6 +6,8 @@ import BrandDetails from "../components/brands/BrandDetails";
 import Login from "../components/login/Login";
 import Register from "../components/register/Register";
 import AuthLayout from "../layouts/AuthLayout";
+import Profile from "../components/profile/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "brands/:brandId",
-        element: <BrandDetails />,
+        element: <PrivateRoute><BrandDetails /></PrivateRoute>,
         loader: async ({ params }) => {
           const response = await fetch("/brands.json");
           const brands = await response.json();
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <div>Profile</div>,
+        element: <PrivateRoute><Profile /></PrivateRoute>,
       },
     ],
   },
