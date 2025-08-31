@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   const navItems = (
     <>
       <li>
@@ -104,7 +107,7 @@ const Header = () => {
         {/* Right Part - Auth Buttons */}
         <div className="navbar-end space-x-3">
           <NavLink
-            to={"/login"}
+            to={"/auth/login"}
             className="btn btn-outline btn-primary hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 font-medium"
           >
             <svg
@@ -123,7 +126,7 @@ const Header = () => {
             Login
           </NavLink>
           <NavLink
-            to={"/register"}
+            to={"/auth/register"}
             className="btn btn-primary bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-none transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
           >
             <svg

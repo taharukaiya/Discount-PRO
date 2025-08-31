@@ -3,7 +3,6 @@ import { useLoaderData, NavLink } from "react-router-dom";
 
 const TopBrands = () => {
   const brands = useLoaderData();
-  console.log(brands);
 
   // Handle loading state or missing data
   if (!brands || !Array.isArray(brands)) {

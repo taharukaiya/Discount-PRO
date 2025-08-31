@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HowItWorks = () => {
   const steps = [
     {
@@ -73,7 +75,7 @@ const HowItWorks = () => {
           {/* Call to Action */}
           <div className="text-center mt-12">
             <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg">
-              Start Saving Now
+              <Link to={"/brands"}>Start Saving Now</Link>
             </button>
           </div>
         </div>
