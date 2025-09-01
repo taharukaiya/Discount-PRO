@@ -4,6 +4,9 @@ import AOS from "aos";
 
 const ErrorPage = () => {
   useEffect(() => {
+    // Set document title for error page
+    document.title = "Page Not Found - Discount PRO";
+
     AOS.init({
       duration: 1000,
       once: true,

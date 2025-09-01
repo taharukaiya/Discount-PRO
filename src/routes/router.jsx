@@ -8,7 +8,6 @@ import Register from "../components/register/Register";
 import ForgotPassword from "../components/auth/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
 import Profile from "../components/profile/Profile";
-import AboutDev from "../components/AboutDev";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../components/ErrorPage";
 
@@ -53,10 +52,6 @@ const router = createBrowserRouter([
             <Profile />
           </PrivateRoute>
         ),
-      },
-      {
-        path: "about-dev",
-        element: <AboutDev />,
       },
     ],
   },
