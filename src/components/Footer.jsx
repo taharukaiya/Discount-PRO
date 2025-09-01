@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   const navItems = (
     <>
       <NavLink
@@ -15,12 +18,18 @@ const Footer = () => {
       >
         Brands
       </NavLink>
-      <NavLink
-        to={"/profile"}
-        className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-      >
-        Profile
-      </NavLink>
+      {user && (
+        <NavLink
+          to={"/profile"}
+          className={({ isActive }) =>
+            `font-medium transition-all duration-300 hover:text-blue-600 relative ${
+              isActive ? "text-blue-600" : "text-gray-700"
+            }`
+          }
+        >
+          Profile
+        </NavLink>
+      )}
     </>
   );
 

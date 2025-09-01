@@ -1,12 +1,26 @@
 import { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  // Helper function to get user initials
+  const getUserInitials = (user) => {
+    if (user.displayName) {
+      return user.displayName
+        .split(" ")
+        .map((name) => name.charAt(0))
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+    } else if (user.email) {
+      return user.email.charAt(0).toUpperCase();
+    }
+    return "U";
+  };
 
   // Handle logout with confirmation and success message
   const handleLogout = async () => {
@@ -62,18 +76,20 @@ const Header = () => {
           Brands
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to={"/profile"}
-          className={({ isActive }) =>
-            `font-medium transition-all duration-300 hover:text-blue-600 relative ${
-              isActive ? "text-blue-600" : "text-gray-700"
-            }`
-          }
-        >
-          Profile
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink
+            to={"/profile"}
+            className={({ isActive }) =>
+              `font-medium transition-all duration-300 hover:text-blue-600 relative ${
+                isActive ? "text-blue-600" : "text-gray-700"
+              }`
+            }
+          >
+            Profile
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -141,19 +157,23 @@ const Header = () => {
           {user ? (
             // Show user info and logout button when logged in
             <div className="flex items-center space-x-3">
-              {user.photoURL && (
-                <div className="avatar">
-                  <div className="w-8 h-8 rounded-full">
+              <div className="avatar">
+                <div className="w-8 h-8 rounded-full">
+                  {user.photoURL ? (
                     <img src={user.photoURL} alt="User Avatar" />
-                  </div>
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+                      {getUserInitials(user)}
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
               <span className="text-gray-700 font-medium hidden sm:block">
                 {user.displayName || user.email}
               </span>
               <button
                 onClick={handleLogout}
-                className="btn btn-outline btn-error hover:bg-red-600 hover:border-red-600 transition-all duration-300 font-medium"
+                className="btn btn-outline btn-error hover:bg-red-600 hover:border-red-600 hover:text-white transition-all duration-300 font-medium"
               >
                 <svg
                   className="w-4 h-4 mr-1"
@@ -217,12 +237,9 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Toast Container for notifications */}
-      <ToastContainer />
-
       {/* Modern Logout Confirmation Modal */}
       {showLogoutModal && (
-        <div className="fixed inset-0 bg-[#ffffff6b] flex items-center justify-center p-4 z-[9999] backdrop-blur-sm">
+        <div className="fixed inset-0 bg-[#0000008e] backdrop-blur-sm flex items-center justify-center p-4 z-[9999">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100">
             {/* Modal Header */}
             <div className="p-6 text-center border-b border-gray-100">

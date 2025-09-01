@@ -5,12 +5,16 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -27,9 +31,21 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // Google Sign In
+  const googleSignIn = () => {
+    setIsLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const logout = () => {
     setIsLoading(true);
     return signOut(auth);
+  };
+
+  const updateUserProfile = async (updatedData) => {
+    await updateProfile(auth.currentUser, updatedData);
+    // Update local user state immediately
+    setUser(auth.currentUser);
   };
 
   const authInfo = {
@@ -37,8 +53,10 @@ const AuthProvider = ({ children }) => {
     setUser,
     createNewUser,
     userLogin,
+    googleSignIn,
     logout,
     loading,
+    updateUserProfile,
   };
 
   useEffect(() => {

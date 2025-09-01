@@ -1,11 +1,10 @@
 import { useContext, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const { userLogin, setUser } = useContext(AuthContext);
+  const { userLogin, googleSignIn, setUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -70,7 +69,6 @@ const Login = () => {
         position: "top-right",
         autoClose: 1000,
       });
-
     } catch (error) {
       // Handle Firebase authentication errors
       let errorMessage = "Login failed. Please try again.";
@@ -100,18 +98,22 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     setIsLoading(true);
     try {
-      // Simulate Google authentication - replace with actual Google auth
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await googleSignIn();
+      const user = result.user;
+      setUser(user);
 
       toast.success("Successfully signed in with Google!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
       });
 
+      // Navigate to intended page or home
+      const from = location.state?.from?.pathname || "/";
       setTimeout(() => {
-        navigate("/");
+        navigate(from, { replace: true });
       }, 1500);
     } catch (error) {
+      console.error("Google sign-in error:", error);
       toast.error("Google sign-in failed. Please try again.", {
         position: "top-right",
         autoClose: 3000,
@@ -390,7 +392,7 @@ const Login = () => {
 
       {/* Forgot Password Modal */}
       {showForgotPassword && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-[#0000008e] backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-gray-800 mb-2">
@@ -441,9 +443,6 @@ const Login = () => {
           </div>
         </div>
       )}
-
-      {/* Toast Container */}
-      <ToastContainer />
     </div>
   );
 };

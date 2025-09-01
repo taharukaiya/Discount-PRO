@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { NavLink, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createNewUser, setUser } = useContext(AuthContext);
+  const { createNewUser, googleSignIn, setUser, updateUserProfile } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +18,6 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
 
   // Password validation function
   const validatePassword = (password) => {
@@ -100,10 +101,15 @@ const Register = () => {
       // Firebase user registration
       const result = await createNewUser(formData.email, formData.password);
       const user = result.user;
-      console.log(user);
       setUser(user);
 
-      // Simulate successful registration
+      // Update user profile and wait for completion
+      await updateUserProfile({
+        displayName: formData.name,
+        photoURL: formData.photoURL,
+      });
+
+      // Show success message
       toast.success("Registration successful! Welcome to Discount PRO!", {
         position: "top-right",
         autoClose: 1000,
@@ -123,25 +129,27 @@ const Register = () => {
     }
   };
 
-  // Handle Google login
+  // Handle Google registration/login
   const handleGoogleLogin = async () => {
     setIsLoading(true);
     try {
-      // Simulate Google authentication - replace with actual Google auth
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await googleSignIn();
+      const user = result.user;
+      setUser(user);
 
-      toast.success("Successfully signed in with Google!", {
+      toast.success("Successfully signed up with Google!", {
         position: "top-right",
-        autoClose: 1000,
+        autoClose: 2000,
       });
 
       setTimeout(() => {
         navigate("/");
       }, 1500);
     } catch (error) {
-      toast.error("Google sign-in failed. Please try again.", {
+      console.error("Google sign-up error:", error);
+      toast.error("Google sign-up failed. Please try again.", {
         position: "top-right",
-        autoClose: 1000,
+        autoClose: 2000,
       });
     } finally {
       setIsLoading(false);
@@ -418,9 +426,6 @@ const Register = () => {
           </NavLink>
         </div>
       </div>
-
-      {/* Toast Container */}
-      <ToastContainer />
     </div>
   );
 };
