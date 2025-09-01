@@ -1,26 +1,10 @@
 # 🛍️ Discount PRO - Coupon Collecting Application
 
-![Discount PRO Banner](https://i.imgur.com/placeholder.png)
-
 ## 🌐 Live Application
 
 **🔗 [Visit Discount PRO](https://discount-pro-54b5b.web.app/)**
 
 _Experience the live application deployed on Firebase Hosting_
-
----
-
-## 📋 Table of Contents
-
-- [Project Overview](#-project-overview)
-- [Key Features](#-key-features)
-- [Technology Stack](#-technology-stack)
-- [Installation & Setup](#-installation--setup)
-- [Project Structure](#-project-structure)
-- [Features in Detail](#-features-in-detail)
-- [Security & Performance](#-security--performance)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
 
 ---
 
