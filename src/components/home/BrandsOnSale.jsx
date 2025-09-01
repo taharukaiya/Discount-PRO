@@ -24,7 +24,7 @@ const BrandsOnSale = () => {
       <div className="w-11/12 sm:w-10/12 mx-auto">
         <div className="container mx-auto px-4">
           {/* Section Title */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               Brands on Sale
             </h2>
@@ -37,11 +37,13 @@ const BrandsOnSale = () => {
 
           {/* Brands Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {brandsOnSale.map((brand) => (
+            {brandsOnSale.map((brand, index) => (
               <NavLink
                 key={brand._id}
                 to={`/brands/${brand._id}`}
                 className="group block"
+                data-aos="flip-left"
+                data-aos-delay={index * 100}
               >
                 <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform group-hover:scale-105 border border-gray-200 overflow-hidden relative">
                   {/* Sale Badge */}

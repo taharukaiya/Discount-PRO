@@ -50,7 +50,10 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden shadow-lg">
+    <div
+      className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden shadow-lg"
+      data-aos="fade-in"
+    >
       {/* Slides Container */}
       <div
         className="flex transition-transform duration-500 ease-in-out h-full"
@@ -65,7 +68,11 @@ const Slider = () => {
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-[#00000084] backdrop-blur-sm bg-opacity-40 flex items-center justify-center">
-              <div className="text-center text-white px-4">
+              <div
+                className="text-center text-white px-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {slide.title}
                 </h2>

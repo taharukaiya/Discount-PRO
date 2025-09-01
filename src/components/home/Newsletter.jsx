@@ -29,7 +29,7 @@ const Newsletter = () => {
       <div className="container w-11/12 sm:w-10/12 mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Section Title */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8" data-aos="fade-down">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               Subscribe to Newsletter
             </h2>
@@ -43,7 +43,12 @@ const Newsletter = () => {
           {!isSuccess ? (
             <>
               {/* Email Form */}
-              <form onSubmit={handleSubmit} className="mb-8 w-full">
+              <form
+                onSubmit={handleSubmit}
+                className="mb-8 w-full"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div className="flex flex-col sm:flex-row gap-4 w-full mx-auto">
                   <input
                     type="email"

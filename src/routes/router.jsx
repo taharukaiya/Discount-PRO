@@ -5,9 +5,12 @@ import Brands from "../components/brands/Brands";
 import BrandDetails from "../components/brands/BrandDetails";
 import Login from "../components/login/Login";
 import Register from "../components/register/Register";
+import ForgotPassword from "../components/auth/ForgotPassword";
 import AuthLayout from "../layouts/AuthLayout";
 import Profile from "../components/profile/Profile";
+import AboutDev from "../components/AboutDev";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "brands/:brandId",
-        element: <PrivateRoute><BrandDetails /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <BrandDetails />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const response = await fetch("/brands.json");
           const brands = await response.json();
@@ -41,7 +48,15 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <PrivateRoute><Profile /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "about-dev",
+        element: <AboutDev />,
       },
     ],
   },
@@ -57,11 +72,15 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register />,
       },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />,
+      },
     ],
   },
   {
     path: "*",
-    element: <div>Error</div>,
+    element: <ErrorPage />,
   },
 ]);
 

@@ -90,6 +90,18 @@ const Header = () => {
           </NavLink>
         </li>
       )}
+      <li>
+        <NavLink
+          to={"/about-dev"}
+          className={({ isActive }) =>
+            `font-medium transition-all duration-300 hover:text-blue-600 relative ${
+              isActive ? "text-blue-600" : "text-gray-700"
+            }`
+          }
+        >
+          About Dev
+        </NavLink>
+      </li>
     </>
   );
 

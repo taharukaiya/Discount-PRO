@@ -22,7 +22,7 @@ const TopBrands = () => {
       <div className="py-12 w-11/12 sm:w-10/12 mx-auto">
         <div className="container mx-auto px-4">
           {/* Section Title */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-10" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               Top Brands
             </h2>
@@ -34,7 +34,11 @@ const TopBrands = () => {
           </div>
 
           {/* Brands Marquee */}
-          <div className="relative overflow-hidden">
+          <div
+            className="relative overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <Marquee
               speed={50}
               pauseOnHover={true}

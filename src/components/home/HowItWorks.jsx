@@ -37,7 +37,7 @@ const HowItWorks = () => {
       <div className="py-16 bg-white w-11/12 sm:w-10/12 mx-auto">
         <div className="container mx-auto px-4">
           {/* Section Title */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-down">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
               How It Works
             </h2>
@@ -50,8 +50,13 @@ const HowItWorks = () => {
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step) => (
-              <div key={step.id} className="text-center group">
+            {steps.map((step, index) => (
+              <div
+                key={step.id}
+                className="text-center group"
+                data-aos="zoom-in"
+                data-aos-delay={index * 150}
+              >
                 <div className="bg-white hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 rounded-xl p-6 shadow-md border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
                   {/* Icon */}
                   <div className="w-20 h-20 bg-gray-50 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 transition-all duration-300">
@@ -73,7 +78,11 @@ const HowItWorks = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-12">
+          <div
+            className="text-center mt-12"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg">
               <Link to={"/brands"}>Start Saving Now</Link>
             </button>
